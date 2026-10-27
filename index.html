@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- This next line fixes the broken images by bypassing hotlink protection -->
+    <meta name="referrer" content="no-referrer"> 
     <title>Hardware Flashcards & Matching Game</title>
     <style>
         body {
@@ -161,7 +163,7 @@
 
     <!-- PAGE 1: FLASHCARDS -->
     <div id="flashcards" class="page active">
-        <!-- Generated via JS to keep code DRY -->
+        <!-- Generated via JS -->
     </div>
 
     <!-- PAGE 2: MATCHING GAME -->
@@ -289,25 +291,21 @@
 
         document.querySelectorAll('.match-item').forEach(el => {
             el.addEventListener('click', function() {
-                if (this.classList.contains('matched')) return; // ignore already matched
+                if (this.classList.contains('matched')) return; 
 
-                // Select image
                 if (this.classList.contains('type-img')) {
                     if (selectedImg) selectedImg.classList.remove('selected');
                     selectedImg = this;
                     selectedImg.classList.add('selected');
                 } 
-                // Select definition
                 else if (this.classList.contains('type-def')) {
                     if (selectedDef) selectedDef.classList.remove('selected');
                     selectedDef = this;
                     selectedDef.classList.add('selected');
                 }
 
-                // Check match
                 if (selectedImg && selectedDef) {
                     if (selectedImg.dataset.id === selectedDef.dataset.id) {
-                        // Match success
                         selectedImg.classList.remove('selected');
                         selectedDef.classList.remove('selected');
                         selectedImg.classList.add('matched');
@@ -315,7 +313,6 @@
                         selectedImg = null;
                         selectedDef = null;
                     } else {
-                        // Match fail
                         selectedImg.classList.add('wrong');
                         selectedDef.classList.add('wrong');
                         setTimeout(() => {
@@ -329,7 +326,6 @@
             });
         });
 
-        // Navigation
         function showPage(pageId) {
             document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
             document.getElementById(pageId).classList.add('active');
