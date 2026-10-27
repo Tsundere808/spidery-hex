@@ -3,8 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- This next line fixes the broken images by bypassing hotlink protection -->
-    <meta name="referrer" content="no-referrer"> 
     <title>Hardware Flashcards & Matching Game</title>
     <style>
         body {
@@ -133,6 +131,13 @@
             max-height: 80px;
             object-fit: contain;
         }
+        .match-item.type-img {
+            flex-direction: column;
+            gap: 8px;
+        }
+        .match-name {
+            font-weight: 600;
+        }
         .match-item.selected {
             border-color: #3498db;
             background-color: #ebf5fb;
@@ -180,70 +185,70 @@
             {
                 id: 'cpu',
                 name: 'CPU',
-                img: 'https://upload.wikimedia.org/wikipedia/commons/d/d7/Cpu-processor.jpg',
+                img: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/2/21/2023_Intel_Core_i7_12700KF_%283%29.jpg/330px-2023_Intel_Core_i7_12700KF_%283%29.jpg',
                 def: '<strong>Central Processing Unit:</strong> The primary component of a computer that acts as its "brain," executing instructions of a computer program by performing basic arithmetic, logical, control, and input/output operations.',
                 analogy: 'Analogy: Like the head chef in a kitchen, reading the recipes and executing all the orders at lightning speed.'
             },
             {
                 id: 'mobo',
                 name: 'Motherboard',
-                img: 'https://upload.wikimedia.org/wikipedia/commons/b/bd/Motherboard_picture_1.jpg',
+                img: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5a/Computer_motherboard_11.jpg/330px-Computer_motherboard_11.jpg',
                 def: '<strong>Motherboard:</strong> A printed circuit board containing the principal components of a computer or other device, featuring connectors into which other internal circuit boards can be slotted.',
                 analogy: 'Analogy: Like the city\'s highway system, providing the physical roads for data and power to travel between all the different buildings.'
             },
             {
                 id: 'gpu',
                 name: 'GPU',
-                img: 'https://upload.wikimedia.org/wikipedia/commons/5/5f/Video-card.jpg',
+                img: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/9/98/ATI_Radeon_HD_5850_Graphics_Card-oblique_view.jpg/330px-ATI_Radeon_HD_5850_Graphics_Card-oblique_view.jpg',
                 def: '<strong>Graphics Processing Unit:</strong> A specialized electronic circuit designed to rapidly manipulate and alter memory to accelerate the creation of images in a frame buffer intended for output to a display device.',
                 analogy: 'Analogy: Like a dedicated artist painting a highly detailed canvas, taking the heavy visual lifting off the head chef.'
             },
             {
                 id: 'psu',
                 name: 'PSU',
-                img: 'https://upload.wikimedia.org/wikipedia/commons/d/d1/ATX_power_supply.jpg',
+                img: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/a/af/ATX_Computer_power_supply_unit.jpg/330px-ATX_Computer_power_supply_unit.jpg',
                 def: '<strong>Power Supply Unit:</strong> An internal hardware component that converts standard electrical AC power from a wall outlet into the low-voltage, regulated DC power required by the internal components.',
                 analogy: 'Analogy: Like the electrical power plant of the city, safely distributing the exact amount of energy each building needs to function.'
             },
             {
                 id: 'ram',
                 name: 'RAM',
-                img: 'https://upload.wikimedia.org/wikipedia/commons/7/7c/DDER_SDRAM_Memory_module_for_desktop_PC.jpg',
+                img: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/8/84/Transcend_DDR3_Memory_Modules.jpg/330px-Transcend_DDR3_Memory_Modules.jpg',
                 def: '<strong>Random Access Memory:</strong> A form of volatile computer memory that can be read and changed in any order, typically used to store working data and machine code currently in use.',
                 analogy: 'Analogy: Like the chef\'s countertop; it provides quick access to active ingredients, but gets wiped completely clean at the end of the day.'
             },
             {
                 id: 'fan',
                 name: 'Cooling Fan',
-                img: 'https://upload.wikimedia.org/wikipedia/commons/5/5a/12cm_pc_fan.jpg',
+                img: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/4/42/2023_Wentylator_be_quiet%21_Silent_Wings_135_mm.jpg/330px-2023_Wentylator_be_quiet%21_Silent_Wings_135_mm.jpg',
                 def: '<strong>Cooling Fan:</strong> An active hardware component used to draw cooler ambient air into the computer case, expel warm air from inside, or move air across a heat sink.',
                 analogy: 'Analogy: Like the kitchen\'s exhaust hood, rapidly pulling dangerous hot air out so the chef doesn\'t overheat during the dinner rush.'
             },
             {
                 id: 'ssd',
                 name: 'SSD',
-                img: 'https://upload.wikimedia.org/wikipedia/commons/6/66/Solid_state_drive.jpg',
+                img: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7a/2017_Dysk_SSD_Plextor_M8Pe%28Y%29_256GB.jpg/330px-2017_Dysk_SSD_Plextor_M8Pe%28Y%29_256GB.jpg',
                 def: '<strong>Solid-State Drive:</strong> A solid-state storage device that uses integrated circuit assemblies (flash memory) to store data persistently, functioning without moving mechanical parts.',
                 analogy: 'Analogy: Like a modern digital safe, booting up instantly and storing your recipes permanently without any moving parts.'
             },
             {
                 id: 'hdd',
                 name: 'Hard Drive',
-                img: 'https://upload.wikimedia.org/wikipedia/commons/f/f8/Hard_drive_opened.jpg',
+                img: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/3/38/Seagate_ST33232A_hard_disk_inner_view.jpg/330px-Seagate_ST33232A_hard_disk_inner_view.jpg',
                 def: '<strong>Hard Disk Drive:</strong> An electro-mechanical data storage device that stores and retrieves digital data using magnetic storage on one or more rigid, rapidly rotating platters.',
                 analogy: 'Analogy: Like a massive mechanical filing cabinet; it isn\'t the fastest way to find a file, but it offers incredible long-term storage capacity.'
             },
             {
                 id: 'wifi',
                 name: 'Wireless Card',
-                img: 'https://upload.wikimedia.org/wikipedia/commons/7/7c/Wifi_card.jpg',
+                img: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b3/Wireless_network_interface_controller_Gigabyte_GC-WB867D-I_-_front_and_back_-_2018-05-15.jpg/330px-Wireless_network_interface_controller_Gigabyte_GC-WB867D-I_-_front_and_back_-_2018-05-15.jpg',
                 def: '<strong>Wireless Network Interface Controller:</strong> A network interface component that connects to a wireless radio-based computer network, allowing communication over Wi-Fi without cables.',
                 analogy: 'Analogy: Like a radio antenna, catching invisible signals from the outside world and bringing them inside without needing a physical wire.'
             },
             {
                 id: 'sound',
                 name: 'Sound Card',
-                img: 'https://upload.wikimedia.org/wikipedia/commons/b/bc/Creative_SoundBlaster_X-Fi_Fatal1ty_Pro_PCIe-Card.jpg',
+                img: 'sound-card.svg',
                 def: '<strong>Sound Card:</strong> An internal expansion card that facilitates the input and output of audio signals to and from a computer under the control of computer software.',
                 analogy: 'Analogy: Like a specialized sound engineer, taking basic noises and upgrading them into a cinematic, high-fidelity listening experience.'
             }
@@ -276,8 +281,8 @@
         const imagesCol = document.getElementById('match-images');
         const defsCol = document.getElementById('match-defs');
 
-        let imageNodes = hardwareData.map(item => `<div class="match-item type-img" data-id="${item.id}"><img class="match-img" src="${item.img}" alt="${item.name}"></div>`);
-        let defNodes = hardwareData.map(item => `<div class="match-item type-def" data-id="${item.id}"><div class="def-text">${item.def}<br><br><span class="analogy" style="color:#2980b9">${item.analogy}</span></div></div>`);
+        let imageNodes = hardwareData.map(item => `<div class="match-item type-img" data-id="${item.id}"><img class="match-img" src="${item.img}" alt="${item.name}"><span class="match-name">${item.name}</span></div>`);
+        let defNodes = hardwareData.map(item => `<div class="match-item type-def" data-id="${item.id}"><div class="def-text">${item.def.replace(/^<strong>.*?<\/strong>\s*/, '')}<br><br><span class="analogy" style="color:#2980b9">${item.analogy}</span></div></div>`);
 
         imageNodes = shuffle(imageNodes);
         defNodes = shuffle(defNodes);
